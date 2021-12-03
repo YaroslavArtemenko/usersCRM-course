@@ -5,7 +5,7 @@
       <div class="navbar">
         <div class="container">
           <div class="navbar-content">
-            <div class="logo">VUE-CLI</div>
+            <div class="logo">Users CRM</div>
 
             <ul class="navbar-list">
 
