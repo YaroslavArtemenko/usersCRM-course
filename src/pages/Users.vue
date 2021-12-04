@@ -4,22 +4,25 @@
     <section>
       <div class="container">
 
-<!--        table-->
+        <!--        table-->
         <table>
 
-<!--          head-->
+          <!--          head-->
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Gender</th>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+          </tr>
           </thead>
 
-<!--          body-->
+          <!--          body-->
           <tbody>
           <tr v-for="user in users" :key="user.id">
-            <td>{{ user.name }}</td>
+            <td>
+              <img :src="user.img" :alt="user.name">
+              <span>{{ user.name }}</span>
+            </td>
             <td>{{ user.age }}</td>
             <td>{{ user.gender }}</td>
           </tr>
@@ -40,17 +43,20 @@ import axios from 'axios'
 
 export default {
   name: "Users",
-  data () {
+  data() {
     return {
       users: []
     }
   },
-  created () {
+  created() {
     axios
         .get('http://localhost:3000/users')
         .then(response => {
           // console.log(response.data)
           this.users = response.data
+        })
+        .catch(error => {
+          console.log(error)
         })
 
 
@@ -72,6 +78,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+img {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 16px;
+}
 </style>
