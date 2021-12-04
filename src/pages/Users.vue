@@ -3,7 +3,30 @@
 
     <section>
       <div class="container">
-        <h1>Users Page</h1>
+
+<!--        table-->
+        <table>
+
+<!--          head-->
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+
+<!--          body-->
+          <tbody>
+          <tr v-for="user in users" :key="user.id">
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.gender }}</td>
+          </tr>
+          </tbody>
+
+        </table>
+
       </div>
 
     </section>
@@ -13,7 +36,25 @@
 
 <script>
 export default {
-  name: "Users"
+  name: "Users",
+  data () {
+    return {
+      users: [
+        {
+          id: 1,
+          name: 'Jack',
+          age: 22,
+          gender: 'male'
+        },
+        {
+          id: 2,
+          name: 'Alex',
+          age: 24,
+          gender: 'male'
+        },
+      ]
+    }
+  }
 }
 </script>
 
