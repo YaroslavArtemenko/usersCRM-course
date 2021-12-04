@@ -47,9 +47,10 @@ export default {
   },
   created () {
     axios
-        .get('http://localhost:3000/employees')
+        .get('http://localhost:3000/users')
         .then(response => {
-          console.log(response)
+          // console.log(response.data)
+          this.users = response.data
         })
 
 
