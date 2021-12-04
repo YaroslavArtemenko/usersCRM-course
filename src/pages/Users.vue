@@ -30,7 +30,10 @@
 
         </table>
 
-        <p> debug: sort: {{ currentSort }}, dir: {{ currentSortDir }}</p>
+        <p style="text-align: center;">
+          <span>debug: sort: {{ currentSort }}, dir: {{ currentSortDir }};</span>
+          <span> page: {{ this.page.current }}, page: {{ this.page.length }}</span>
+        </p>
       </div>
 
     </section>
@@ -61,7 +64,7 @@ export default {
       currentSortDir: 'asc',
       page: {
         current: 1,
-        length: 3
+        length: 4
       }
     }
   },
