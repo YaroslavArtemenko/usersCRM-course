@@ -10,15 +10,15 @@
           <!--          head-->
           <thead>
           <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
+            <th @click="sort('name')">Name</th>
+            <th @click="sort('age')">Age</th>
+            <th @click="sort('gender')">Gender</th>
           </tr>
           </thead>
 
           <!--          body-->
           <tbody>
-          <tr v-for="user in users" :key="user.id">
+          <tr v-for="user in usersSort" :key="user.id">
             <td>
               <img :src="user.img" :alt="user.name">
               <span>{{ user.name }}</span>
@@ -30,6 +30,7 @@
 
         </table>
 
+        <p> debug: sort: {{ currentSort }}, dir: {{ currentSortDir }}</p>
       </div>
 
     </section>
@@ -45,7 +46,9 @@ export default {
   name: "Users",
   data() {
     return {
-      users: []
+      users: [],
+      currentSort: 'name',
+      currentSortDir: 'asc'
     }
   },
   created() {
@@ -58,22 +61,28 @@ export default {
         .catch(error => {
           console.log(error)
         })
-
-
-    // this.users = [
-    //   {
-    //     id: 1,
-    //     name: 'Jack',
-    //     age: 22,
-    //     gender: 'male'
-    //   },
-    //   {
-    //     id: 2,
-    //     name: 'Alex',
-    //     age: 24,
-    //     gender: 'male'
-    //   }
-    // ]
+  },
+  computed: {
+    usersSort () {
+      return this.users.sort((a,b) => {
+        let mod = 1
+        if (this.currentSortDir === 'desc')
+          mod = -1
+        if (a[this.currentSort] < b[this.currentSort])
+          return -1 * mod
+        if (a[this.currentSort] > b[this.currentSort])
+          return mod
+        return 0
+      })
+    }
+  },
+  methods: {
+    sort(e) {
+      if (e === this.currentSort) {
+        this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc'
+      }
+      this.currentSort = e
+    }
   }
 }
 </script>
@@ -81,7 +90,7 @@ export default {
 <style lang="scss" scoped>
 img {
   width: 60px;
-  height: auto;
+  height: 60px;
   border-radius: 50%;
   margin-right: 16px;
 }
