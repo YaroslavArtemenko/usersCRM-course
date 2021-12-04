@@ -39,21 +39,24 @@ export default {
   name: "Users",
   data () {
     return {
-      users: [
-        {
-          id: 1,
-          name: 'Jack',
-          age: 22,
-          gender: 'male'
-        },
-        {
-          id: 2,
-          name: 'Alex',
-          age: 24,
-          gender: 'male'
-        },
-      ]
+      users: []
     }
+  },
+  created () {
+    this.users = [
+      {
+        id: 1,
+        name: 'Jack',
+        age: 22,
+        gender: 'male'
+      },
+      {
+        id: 2,
+        name: 'Alex',
+        age: 24,
+        gender: 'male'
+      },
+    ]
   }
 }
 </script>
