@@ -10,9 +10,9 @@
           <!--          head-->
           <thead>
           <tr>
-            <th @click="sort('name')">Name</th>
-            <th @click="sort('age')">Age</th>
-            <th @click="sort('gender')">Gender</th>
+            <th @click="sort('name')">Name &#8595;</th>
+            <th @click="sort('age')">Age &#8595;</th>
+            <th @click="sort('gender')">Gender &#8595;</th>
           </tr>
           </thead>
 
@@ -33,6 +33,16 @@
         <p> debug: sort: {{ currentSort }}, dir: {{ currentSortDir }}</p>
       </div>
 
+    </section>
+
+<!--    buttons-->
+    <section>
+      <div class="container">
+        <div class="button-list">
+          <div class="btn btnPrimary"> &#8592; </div>
+          <div class="btn btnPrimary"> &#8594; </div>
+        </div>
+      </div>
     </section>
 
   </div>
