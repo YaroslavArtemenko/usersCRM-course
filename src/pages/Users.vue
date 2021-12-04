@@ -35,6 +35,9 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: "Users",
   data () {
@@ -43,20 +46,27 @@ export default {
     }
   },
   created () {
-    this.users = [
-      {
-        id: 1,
-        name: 'Jack',
-        age: 22,
-        gender: 'male'
-      },
-      {
-        id: 2,
-        name: 'Alex',
-        age: 24,
-        gender: 'male'
-      },
-    ]
+    axios
+        .get('http://localhost:3000/employees')
+        .then(response => {
+          console.log(response)
+        })
+
+
+    // this.users = [
+    //   {
+    //     id: 1,
+    //     name: 'Jack',
+    //     age: 22,
+    //     gender: 'male'
+    //   },
+    //   {
+    //     id: 2,
+    //     name: 'Alex',
+    //     age: 24,
+    //     gender: 'male'
+    //   }
+    // ]
   }
 }
 </script>
