@@ -104,4 +104,13 @@ img {
   border-radius: 50%;
   margin-right: 16px;
 }
+.button-list {
+  width: 100%;
+  text-align: center;
+
+  .btn {
+    border-radius: 60px;
+    margin: 0 20px;
+  }
+}
 </style>
